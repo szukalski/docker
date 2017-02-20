@@ -7,14 +7,14 @@ GRAFANA_IMAGE=grafana/grafana
 GRAFANA_CONTAINER=graf-grafana
 
 PERSISTENT_CONTAINER=graf-storage
-PERSISTENT_LOCATION=/srv/docker/grafana-influxdb
+PERSISTENT_LOCATION=/srv/docker/graf
 VOLUMES=""
 
 INFLUX_ADMIN=dba
 INFLUX_ADMIN_PASSWORD=dbapassword
 INFLUX_USER=rouser
 INFLUX_USER_PASSWORD=userpassword
-INFLUX_DATABASES=("default")
+INFLUX_DATABASES=("influx")
 
 GRAFANA_ADMIN_PASSWORD=secret
 
@@ -56,7 +56,7 @@ curl --noproxy localhost -G http://localhost:8086/query --data-urlencode "q=CREA
 curl --noproxy localhost -G http://localhost:8086/query -u $INFLUX_ADMIN:$INFLUX_ADMIN_PASSWORD --data-urlencode "q=CREATE USER $INFLUX_USER WITH PASSWORD 'userpassword'"
 
 # Create databases
-for DB in "${DATABASES[@]}"
+for DB in "${INFLUX_DATABASES[@]}"
 do
 	curl --noproxy localhost -G http://localhost:8086/query -u $INFLUX_ADMIN:$INFLUX_ADMIN_PASSWORD --data-urlencode "q=CREATE DATABASE $DB"
 	curl --noproxy localhost -G http://localhost:8086/query -u $INFLUX_ADMIN:$INFLUX_ADMIN_PASSWORD --data-urlencode "q=GRANT READ ON $DB to $INFLUX_USER"
