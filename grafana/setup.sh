@@ -17,7 +17,7 @@ do
 done
 
 # Create persistent storage container
-docker run -d $VOLUMES --name $PERSISTENT_CONTAINER ubuntu:16.04 /bin/true
+docker run -d $VOLUMES --name $PERSISTENT_CONTAINER ubuntu:16.04
 
 # Run the image
 docker run -d \
