@@ -12,7 +12,7 @@ VOLUMES=""
 
 INFLUX_ADMIN=dba
 INFLUX_ADMIN_PASSWORD=dbapassword
-INFLUX_USER=user
+INFLUX_USER=rouser
 INFLUX_USER_PASSWORD=userpassword
 INFLUX_DATABASES=("default")
 
@@ -73,8 +73,3 @@ docker run -d \
 	--volumes-from $PERSISTENT_CONTAINER \
 	$GRAFANA_IMAGE
 
-# Wait for grafana to start
-sleep 15
-
-# Create Grafana data source
-curl --noproxy localhost -G http://admin:$GRAFANA_ADMIN_PASSWORD@localhost:3000/api/datasources -X POST -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{"name":"influx","type":"influxdb","url":"http://localhost:8086","access":"proxy","isDefault":true,"database":"default","user":"user","password":"userpassword"}'
