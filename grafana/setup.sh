@@ -2,13 +2,10 @@
 
 IMAGE=grafana/grafana
 CONTAINER=grafana
-PERSISTENT_CONTAINER=grafana-storage
+PERSISTENT_CONTAINER=$CONTAINER-storage
 PERSISTENT_LOCATION=/srv/docker/$CONTAINER
 PERSISTENT_VOLUMES=(var/lib/grafana)
 VOLUMES=""
-
-# Pull the image
-#docker pull $IMAGE
 
 # Create persistent volume locations if they don't exist
 for VOL in ${PERSISTENT_VOLUMES[@]}
