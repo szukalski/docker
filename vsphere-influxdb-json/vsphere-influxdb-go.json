@@ -1,0 +1,56 @@
+{
+        "Domain": ".foo.bar",
+        "Interval": 60,
+        "VCenters": [
+                { "Username": "read-only-account@vsphere.local", "Password": "Password!", "Hostname": "vcsa.foo.bar" }
+
+        ],
+        "InfluxDB": {
+                "Hostname": "http://influx.foo.bar:8086",
+                "Username": "db-write-account",
+                "Password": "db-write-account-password",
+                "Database": "db-name"
+        },
+        "Metrics": [
+                {
+                        "ObjectType": [ "VirtualMachine", "HostSystem" ],
+                        "Definition": [
+                                { "Metric": "cpu.usage.average", "Instances": "*" },
+                                { "Metric": "cpu.ready.summation", "Instances": "*" },
+                                { "Metric": "mem.usage.average", "Instances": "*" },
+                                { "Metric": "mem.consumed.average", "Instances": "*" },
+                                { "Metric": "mem.active.average", "Instances": "*" },
+                                { "Metric": "net.packetsRx.summation", "Instances": "*" },
+                                { "Metric": "net.packetsTx.summation", "Instances": "*" },
+                                { "Metric": "net.throughput.usage.average", "Instances": "*" },
+                                { "Metric": "net.received.average", "Instances": "*" },
+                                { "Metric": "net.transmitted.average", "Instances": "*" },
+                                { "Metric": "net.throughput.usage.nfs.average", "Instances": "*" },
+                                { "Metric": "datastore.numberReadAveraged.average", "Instances": "*" },
+                                { "Metric": "datastore.numberWriteAveraged.average", "Instances": "*" },
+                                { "Metric": "datastore.read.average", "Instances": "*" },
+                                { "Metric": "datastore.write.average", "Instances": "*" },
+                                { "Metric": "disk.provisioned.latest", "Instances": "*" },
+                                { "Metric": "disk.used.latest", "Instances": "*" },
+                                { "Metric": "disk.capacity.latest", "Instances": "*" },
+                                { "Metric": "datastore.totalReadLatency.average", "Instances": "*" },
+                                { "Metric": "datastore.totalWriteLatency.average", "Instances": "*" }
+                        ]
+                },
+                {
+                        "ObjectType": [ "VirtualMachine" ],
+                        "Definition": [
+                        { "Metric": "datastore.datastoreVMObservedLatency.latest", "Instances": "*" },
+                        { "Metric": "mem.swapused.average", "Instances": "*" },
+                        { "Metric": "cpu.capacity.contention.average", "Instances": "*" }
+                        ]
+                },
+                {
+                        "ObjectType": [ "HostSystem" ],
+                        "Definition": [
+                                { "Metric": "disk.maxTotalLatency.latest", "Instances": "" },
+                                { "Metric": "net.throughput.contention.summation", "Instances": "*" }
+                        ]
+                }
+        ]
+}
