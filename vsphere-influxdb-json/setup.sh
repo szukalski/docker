@@ -14,5 +14,5 @@ fi
 docker run -d \
 	--restart always \
 	--name $CONTAINER \
-	-v $PERSISTENT_LOCATION/$CONFIG:/$CONFIG
+	-v $PERSISTENT_LOCATION/$CONFIG:/$CONFIG \
 	$IMAGE
