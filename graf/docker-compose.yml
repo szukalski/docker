@@ -17,7 +17,7 @@ services:
     links:
       - influxdb
     ports:
-      - "80:3000"
+      - "3000:3000"
     env_file:
       - 'env.grafana'
     restart: always
