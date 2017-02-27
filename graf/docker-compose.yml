@@ -27,6 +27,7 @@ services:
       - ./vsphere-influxdb-go.json:/etc/vsphere-influxdb-go.json
     links:
       - influxdb
+    restart: always
     
 volumes:
   data:
