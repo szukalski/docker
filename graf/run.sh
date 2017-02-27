@@ -30,4 +30,4 @@ curl --noproxy localhost "http://$GRAFANA_ADMIN:$GRAFANA_ADMIN_PASSWORD@localhos
 	-X POST \
 	-H 'Content-Type: application/json;charset=UTF-8' \
 	--data-binary \
-	'{"name":"influx","type":"influxdb","url":"http://influxdb:8086","access":"proxy","isDefault":true,"database":"influx","user":"$INFLUX_USER","password":"$INFLUX_USER_PASSWORD"}'
+	'{"name":"influx","type":"influxdb","url":"http://influxdb:8086","access":"proxy","isDefault":true,"database":"influx","user":"rouser","password":"userpassword"}'
