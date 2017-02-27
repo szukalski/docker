@@ -9,6 +9,7 @@ services:
       - "8086:8086"
     env_file:
       - 'env.influxdb'
+    restart: always
   grafana:
     image: grafana/grafana:latest
     volumes:
@@ -17,6 +18,9 @@ services:
       - influxdb
     ports:
       - "80:3000"
-
+    env_file:
+      - 'env.grafana'
+    restart: always
+    
 volumes:
   data:
