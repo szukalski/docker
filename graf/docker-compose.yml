@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  influxdb:
+    image: influxdb:latest
+    volumes:
+      - data:/var/lib/influxdb
+    ports:
+      - "8086:8086"
+    env_file:
+      - 'env.influxdb'
+  grafana:
+    image: grafana/grafana:latest
+    volumes:
+      - data:/var/lib/grafana
+    links:
+      - influxdb
+    ports:
+      - "80:3000"
+
+volumes:
+  data:
