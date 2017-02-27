@@ -6,7 +6,7 @@
 
         ],
         "InfluxDB": {
-                "Hostname": "http://influx.foo.bar:8086",
+                "Hostname": "http://influxdb:8086",
                 "Username": "db-write-account",
                 "Password": "db-write-account-password",
                 "Database": "db-name"
