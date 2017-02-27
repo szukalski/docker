@@ -7,9 +7,9 @@
         ],
         "InfluxDB": {
                 "Hostname": "http://influxdb:8086",
-                "Username": "db-write-account",
-                "Password": "db-write-account-password",
-                "Database": "db-name"
+                "Username": "dba",
+                "Password": "dbapassword",
+                "Database": "influx"
         },
         "Metrics": [
                 {
