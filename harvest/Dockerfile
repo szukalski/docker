@@ -18,5 +18,5 @@ COPY netapp-manageability-sdk-*.zip /
 RUN dpkg -i netapp-harvest_*_all.deb
 RUN unzip -j netapp-manageability-sdk-*.zip netapp-manageability-sdk-*/lib/perl/NetApp/* -d /opt/netapp-harvest/lib
 
-#COPY entrypoint.sh /
+COPY entrypoint.sh /
 #ENTRYPOINT ["/entrypoint.sh"]

@@ -4,6 +4,7 @@ services:
   harvest:
     image: harvest
     volumes:
+      - data:/opt/netapp-harvest
       - ./netapp-harvest.conf:/opt/netapp-harvest/netapp-harvest.conf
     ports:
       - "80:80"
@@ -16,8 +17,10 @@ services:
     image: influxdb:latest
     volumes:
       - data:/var/lib/influxdb
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf
     ports:
       - "8086:8086"
+      - "2003:2003"
     env_file:
       - '.env.influxdb'
     restart: always
