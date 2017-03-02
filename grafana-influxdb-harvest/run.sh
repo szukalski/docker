@@ -35,6 +35,4 @@ do
 		'{"name":"'$DB'","type":"influxdb","url":"http://influxdb:8086","access":"proxy","isDefault":true,"database":"'$DB'","user":"'$INFLUX_USER'","password":"'$INFLUX_USER_PASSWORD'"}'
 done
 
-
-
 exit 0
