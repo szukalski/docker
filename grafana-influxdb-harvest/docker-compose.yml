@@ -24,7 +24,7 @@ services:
       - "8086:8086"
       - "2003:2003"
     env_file:
-      - '.env.influxdb'
+      - 'env.influxdb'
     restart: always
   grafana:
     image: grafana/grafana:latest
