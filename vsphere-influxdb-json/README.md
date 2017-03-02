@@ -40,7 +40,7 @@ This json configuration file is loaded as a volume during the docker-compose up,
 
 ```
 
-Requires docker-compose
+Requires docker-compose, and you don't need to build locally if you have access to docker hub.
 
 # To-Do
 
