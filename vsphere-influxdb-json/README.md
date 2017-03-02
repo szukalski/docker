@@ -1,6 +1,6 @@
 # Docker image for vsphere-influxdb-go
 
-All credit goes to Oxalide for this, I just wrapped a Dockerfile and docker-compose around it.
+All credit goes to [Oxalide](https://github.com/Oxalide) for this, I just wrapped a Dockerfile and docker-compose around it.
 
 # Extenal dependencies
 
