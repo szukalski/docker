@@ -4,7 +4,6 @@ services:
   harvest:
     image: szukalski/netapp-harvest
     volumes:
-      - data:/opt/netapp-harvest
       - ./netapp-harvest.conf:/opt/netapp-harvest/netapp-harvest.conf
     links:
       - influxdb
