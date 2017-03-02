@@ -40,8 +40,8 @@ This json configuration file is loaded as a volume during the docker-compose up,
 
 ```
 
-Requires docker-compose
+Requires docker-compose, and you don't need to build locally if you have access to docker hub.
 
 # To-Do
 
-Shrink the image size, this is massize for what it is. If I compile the go binaries and include them into the image then it will end up a lot smaller. But I am a lazy man and have other fish to fry..
+Shrink the image size, this is massive for what it is. If I compile the go binaries and include them into the image then it will end up a lot smaller. But I am a lazy man and have other fish to fry.. plus it is only intended to help the home labbers out there on Reddit
