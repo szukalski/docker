@@ -10,8 +10,7 @@ if [ ! -f ./netapp-manageability-sdk-*.zip ]; then
 	exit 1
 fi
 
-# Local image name because this will contain closed source components and shouldnt be pushed to a public hub
-IMAGE=harvest
+IMAGE=szukalski/netapp-harvest
 
 # Build
 docker build -t $IMAGE .

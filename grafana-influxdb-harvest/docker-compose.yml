@@ -2,7 +2,7 @@ version: '3'
 
 services:
   harvest:
-    image: harvest
+    image: szukalski/harvest
     volumes:
       - data:/opt/netapp-harvest
       - ./netapp-harvest.conf:/opt/netapp-harvest/netapp-harvest.conf
@@ -13,6 +13,8 @@ services:
       - influxdb
       - grafana
     restart: always
+    depends_on:
+      - "grafana"
   influxdb:
     image: influxdb:latest
     volumes:
