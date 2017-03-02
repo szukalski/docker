@@ -6,15 +6,12 @@ services:
     volumes:
       - data:/opt/netapp-harvest
       - ./netapp-harvest.conf:/opt/netapp-harvest/netapp-harvest.conf
-    ports:
-      - "80:80"
-      - "8080:8080"
     links:
       - influxdb
       - grafana
     restart: always
     depends_on:
-      - "grafana"
+      - "influxdb"
   influxdb:
     image: influxdb:latest
     volumes:
@@ -38,6 +35,7 @@ services:
       - 'env.grafana'
     depends_on:
       - "influxdb"
+    restart: always
 
 volumes:
   data:
