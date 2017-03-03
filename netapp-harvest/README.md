@@ -30,7 +30,7 @@ The [netapp-harvest.conf](./netapp-harvest.conf) is loaded as an external file, 
 
 # Run
 
-Make sure you have done the configuration and then do:
+Make sure you have done the configuration and then do, this is using docker-compose.
 
 ```
 
@@ -38,8 +38,15 @@ Make sure you have done the configuration and then do:
 
 ```
 
+If you don't have or don't want to use docker-compose, then you can manually run the image with:
+
+```
+
+docker run -d -v $PWD/netapp-harvest.conf:/opt/netapp-harvest/netapp-harvest.conf szukalski/netapp-harvest
+
+```
+
 # Upgrade
 
 Rebuild the image with newer NetApp tools.
-
 
