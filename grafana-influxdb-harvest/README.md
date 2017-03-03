@@ -2,6 +2,8 @@
 
 A combination of my [grafana-influxdb](https://github.com/szukalski/docker/tree/master/grafana-influxdb) and [netapp-harvest](https://github.com/szukalski/docker/tree/master/netapp-harvest) docker setups.
 
+Uses the great work done by [Oxalide](https://github.com/Oxalide) on [netapp-harvest-influxdb](https://github.com/Oxalide/netapp-harvest-influxdb).
+
 Provides a stack containing:
 * Influxdb exposed on port 8086 and 2003 with http authentication enabled (an admin user must be created as a first step).
 * Influxdb configured with a Graphite plugin and Harvest template.
