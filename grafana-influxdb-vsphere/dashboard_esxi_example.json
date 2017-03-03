@@ -144,7 +144,7 @@
               "format": "percent",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "100",
               "min": "0",
               "show": true
             },
@@ -313,7 +313,7 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -392,7 +392,7 @@
               "format": "percent",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "100",
               "min": "0",
               "show": true
             },
@@ -530,17 +530,17 @@
               "format": "deckbytes",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "33000000",
               "min": "0",
               "show": true
             },
             {
-              "format": "ms",
+              "format": "deckbytes",
               "label": null,
               "logBase": 1,
-              "max": "1000",
+              "max": "33000000",
               "min": "0",
-              "show": false
+              "show": true
             }
           ]
         },
@@ -551,7 +551,7 @@
           "editable": true,
           "error": false,
           "fill": 1,
-          "id": 15,
+          "id": 16,
           "interval": "60s",
           "legend": {
             "avg": false,
@@ -565,14 +565,14 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
           "span": 6,
-          "stack": false,
+          "stack": true,
           "steppedLine": false,
           "targets": [
             {
@@ -600,23 +600,11 @@
               ],
               "measurement": "virtualmachine",
               "policy": "default",
-              "query": "SELECT mean(\"mem_active_average\") / mean(\"mem_consumed_average\") FROM \"virtualmachine\" WHERE $timeFilter GROUP BY time($interval), \"name\" fill(null)",
-              "rawQuery": true,
+              "query": "SELECT mean(\"mem_consumed_average\") FROM \"virtualmachine\" WHERE $timeFilter GROUP BY time($interval), \"name\" fill(null)",
+              "rawQuery": false,
               "refId": "A",
               "resultFormat": "time_series",
               "select": [
-                [
-                  {
-                    "params": [
-                      "mem_consumed_average"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ],
                 [
                   {
                     "params": [
@@ -636,7 +624,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "VM Memory",
+          "title": "VM Memory Active",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -653,10 +641,10 @@
           },
           "yaxes": [
             {
-              "format": "percentunit",
+              "format": "deckbytes",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "33000000",
               "min": "0",
               "show": true
             },
@@ -956,6 +944,7 @@
           "legend": {
             "avg": false,
             "current": false,
+            "hideEmpty": false,
             "max": false,
             "min": false,
             "show": true,
@@ -965,7 +954,7 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -1233,7 +1222,7 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -1354,7 +1343,7 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -1384,5 +1373,5 @@
   },
   "timezone": "browser",
   "title": "ESXi Environment",
-  "version": 11
+  "version": 17
 }
