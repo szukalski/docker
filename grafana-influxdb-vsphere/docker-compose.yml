@@ -22,7 +22,7 @@ services:
       - 'env.grafana'
     restart: always
   vsphere-influxdb-go:
-    image: szukalski/vsphere-influxdb-go
+    image: szukalski/vsphere-influxdb-go:latest
     volumes:
       - ./vsphere-influxdb-go.json:/etc/vsphere-influxdb-go.json
     links:

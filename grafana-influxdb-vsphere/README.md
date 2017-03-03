@@ -1,8 +1,11 @@
-# Grafana and Influxdb stack using docker-compose
+# Grafana and Influxdb stack setup for monitoring an ESXi/vCenter environment, using docker-compose
+
+A combination of my [grafana-influxdb](https://github.com/szukalski/docker/tree/master/grafana-influxdb) and [vsphere-influxdb-json](https://github.com/szukalski/docker/tree/master/vsphere-influxdb-json) docker setups.
 
 Provides a stack containing:
-* Influxdb exposed on port 8086, with http authentication enabled (an admin user must be created as a first step).
-* Grafana linked to the Influxdb container.
+* Influxdb exposed on port 8086 with http authentication enabled (an admin user must be created as a first step).
+* Grafana and vsphere-influxdb-json linked to the Influxdb container.
+* vsphere-influxdb-json sending data to Influxdb.
 * Persistent data stored as a volume. This can be modified with a volume driver to be a network share or whatever..
 
 A configuration script is provided for use post deploy which will create:
@@ -32,6 +35,8 @@ Edit [this](./configure.sh) script for your own personalisation on usernames, pa
 ./configure.sh
 
 ```
+
+Afterwards, configure your [vsphere-influxdb-go.json](./vsphere-influxdb-go.json) to reflect the configuration details for Influxdb, and your ESXi/vCenter details.
 
 # Upgrade
 
