@@ -17,7 +17,7 @@ You need to build the [netapp-harvest](https://github.com/szukalski/docker/tree/
 
 # Run
 
-!! Check out the configure part first, you need to build the [netapp-harvest](https://github.com/szukalski/docker/tree/master/netapp-harvest) image before-hand, there are non-open-source components which prevent it from being freely distributed.
+**Check out the configure part first, you need to build the [netapp-harvest](https://github.com/szukalski/docker/tree/master/netapp-harvest) image before-hand, there are non-open-source components which prevent it from being freely distributed.**
 
 [This](./run.sh) will deploy the stack but do no configuration.
 
