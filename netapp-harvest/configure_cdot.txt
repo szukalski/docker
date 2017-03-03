@@ -1,0 +1,20 @@
+# Create the harvest role:
+
+security login role create -role role-harvest -access readonly -cmddirname "version"
+security login role create -role role-harvest -access readonly -cmddirname "cluster identity show"
+security login role create -role role-harvest -access readonly -cmddirname "cluster show"
+security login role create -role role-harvest -access readonly -cmddirname "system node show"
+security login role create -role role-harvest -access readonly -cmddirname "statistics"
+security login role create -role role-harvest -access readonly -cmddirname "lun show"
+security login role create -role role-harvest -access readonly -cmddirname "network interface show"
+security login role create -role role-harvest -access readonly -cmddirname "network interface show"
+security login role create -role role-harvest -access readonly -cmddirname "qos workload show"
+
+# Create the harvest user on each node:
+
+# cDOT 8.2 or earlier:
+security login create -username harvest -application ontapi -role role-harvest -authmethod password
+
+# cDOT 8.3 or later:
+security login create -user-or-group-name harvest -application ontapi -role role-harvest -authmethod password
+

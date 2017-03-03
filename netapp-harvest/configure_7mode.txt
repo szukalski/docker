@@ -1,0 +1,9 @@
+# Create the harvest role:
+
+useradmin role add role-harvest -c "Role for performance monitoring by NetApp Harvest" -a login-http-admin,api-system-get-version,api-system-get-info,api-perf-object-*,api-ems- autosupport-log
+useradmin group add group-harvest -c "Group for performance monitoring by NetApp Harvest" -r role-harvest
+
+# Create the harvest user on each node:
+
+useradmin user add netapp-harvest -c "User account for performance monitoring by NetApp Harvest" -n "NetApp Harvest" -g group-harvest
+
