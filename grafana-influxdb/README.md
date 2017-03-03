@@ -13,7 +13,7 @@ A configuration script is provided for use post deploy which will create:
 
 # Run
 
-This will deploy the stack but do no configuration.
+[This](./run.sh) will deploy the stack but do no configuration.
 
 Grafana admin password is set via [env.grafana](./env.grafana).
 
@@ -25,7 +25,8 @@ Grafana admin password is set via [env.grafana](./env.grafana).
 
 # Configure
 
-Edit the script for your own personalisation on usernames, passwords, databases, and the Grafana admin password you set during run.
+Edit [this](./configure.sh) script for your own personalisation on usernames, passwords, databases, and the Grafana admin password you set during run.
+
 ```
 
 ./configure.sh
@@ -35,3 +36,4 @@ Edit the script for your own personalisation on usernames, passwords, databases,
 # Upgrade
 
 If there is a new IMAGE:latest then just do the run process again and it should pull the latest version.
+
