@@ -1,0 +1,33 @@
+[[inputs.snmp]]
+  agents = [ "REPLACE_ESXI_HOST" ]
+  version = 2
+  community = "public"
+
+  name = "esxiSystem"
+  [[inputs.snmp.field]]
+    name = "hostname"
+    oid = "RFC1213-MIB::sysName.0"
+    is_tag = true
+  [[inputs.snmp.field]]
+    name = "physicalDescr"
+    oid = "ENTITY-MIB::entPhysicalDescr.1"
+
+  [[inputs.snmp.table]]
+    name = "esxiStorage"
+    inherit_tags = [ "hostname" ]
+    oid = "HOST-RESOURCES-MIB::hrStorageTable"
+    [[inputs.snmp.table.field]]
+    name = "storageIndex"
+    oid = "HOST-RESOURCES-MIB::hrStorageIndex"
+    is_tag = true
+
+
+  [[inputs.snmp.table]]
+    name = "esxiInterface"
+    inherit_tags = [ "hostname" ]
+    oid = "IF-MIB::ifXTable"
+    [[inputs.snmp.table.field]]
+      name = "ifName"
+      oid = "IF-MIB::ifName"
+      is_tag = true
+

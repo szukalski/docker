@@ -1,0 +1,81 @@
+[[inputs.snmp]]
+  agents = [ "REPLACE_QNAP_HOST" ]
+  version = 2
+  community = "public"
+
+  name = "qnapSystem"
+  [[inputs.snmp.field]]
+    name = "hostname"
+    oid = "RFC1213-MIB::sysName.0"
+    is_tag = true
+  [[inputs.snmp.field]]
+    name = "physicalDescr"
+    oid = "ENTITY-MIB::entPhysicalDescr.1"
+  [[inputs.snmp.field]]
+    name = "systemTemperature"
+    oid = "NAS-MIB::systemTemperatureEX.0"
+  [[inputs.snmp.field]]
+    name = "cpuTemperature"
+    oid = "NAS-MIB::cpu-TemperatureEX.0"
+  [[inputs.snmp.field]]
+    name = "memoryTotal"
+    oid = "HOST-RESOURCES-MIB::hrStorageSize.1"
+  [[inputs.snmp.field]]
+    name = "memoryPhysicalUsed"
+    oid = "HOST-RESOURCES-MIB::hrStorageSize.1"
+  [[inputs.snmp.field]]
+    name = "memoryBufferUsed"
+    oid = "HOST-RESOURCES-MIB::hrStorageUsed.6"
+  [[inputs.snmp.field]]
+    name = "memoryCachedUsed"
+    oid = "HOST-RESOURCES-MIB::hrStorageUsed.7"
+  [[inputs.snmp.field]]
+    name = "swapTotal"
+    oid = "HOST-RESOURCES-MIB::hrStorageSize.10"
+  [[inputs.snmp.field]]
+    name = "swapUsed"
+    oid = "HOST-RESOURCES-MIB::hrStorageUsed.10"
+  [[inputs.snmp.field]]
+    name = "iops"
+    oid = "NAS-MIB::iops.1"
+  [[inputs.snmp.field]]
+    name = "latency"
+    oid = "NAS-MIB::latency.1"
+
+  [[inputs.snmp.table]]
+    name = "qnapStorage"
+    inherit_tags = [ "hostname" ]
+    oid = "HOST-RESOURCES-MIB::hrStorageTable"
+    [[inputs.snmp.table.field]]
+    name = "storageIndex"
+    oid = "HOST-RESOURCES-MIB::hrStorageIndex"
+    is_tag = true
+
+  [[inputs.snmp.table]]
+    name = "qnapInterface"
+    inherit_tags = [ "hostname" ]
+    oid = "IF-MIB::ifXTable"
+    [[inputs.snmp.table.field]]
+      name = "ifName"
+      oid = "IF-MIB::ifName"
+      is_tag = true
+
+  [[inputs.snmp.table]]
+    name = "qnapDisk"
+    inherit_tags = [ "hostname" ]
+    oid = "NAS-MIB::diskTable"
+    [[inputs.snmp.table.field]]
+    name = "diskId"
+    oid = "NAS-MIB::diskID"
+    is_tag = true
+
+  [[inputs.snmp.table]]
+    name = "qnapCpu"
+    inherit_tags = [ "hostname" ]
+    oid = "NAS-MIB::cpuTable"
+    [[inputs.snmp.table.field]]
+    name = "diskId"
+    oid = "NAS-MIB::cpuID"
+    is_tag = true
+
+
