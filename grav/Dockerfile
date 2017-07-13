@@ -7,4 +7,5 @@ RUN apt-get update \
 	--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.0/fpm/php.ini
 
