@@ -13,6 +13,22 @@ services:
     volumes: 
       - /var/run/docker.sock:/tmp/docker.sock:ro
       
+  rutorrent:
+    restart: always
+    container_name: rutorrent
+    image: linuxserver/rutorrent
+    networks: 
+      - downer
+    ports: 
+      - "5000:5000"
+      - "51413:51413"
+      - "6881:6881/udp"
+    environment: 
+      - TZ="${TZ}"
+      - PUID="${UID}"
+      - PGID="${GID}"
+    volumes: 
+      - "${DIR}"/rutorrent/config:/config
 
 
 networks: 
