@@ -28,7 +28,7 @@ services:
       - PUID="${UID}"
       - PGID="${GID}"
     volumes: 
-      - "${DIR}"/rutorrent/config:/config
+      - ${DIR}/rutorrent/config:/config
 
 
 networks: 
