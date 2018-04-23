@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  nginx-proxy:
+    restart: always
+    container_name: nginx-proxy
+    image: jwilder/jwilder/nginx-proxy
+    networks:
+      - downer
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes: 
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      
+
+
+networks: 
+  downer:
+    driver: bridge
