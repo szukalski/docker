@@ -24,9 +24,9 @@ services:
       - "51413:51413"
       - "6881:6881/udp"
     environment: 
-      - TZ="${TZ}"
-      - PUID="${UID}"
-      - PGID="${GID}"
+      - TZ=${TZ}
+      - PUID=${UID}
+      - PGID=${GID}
     volumes: 
       - ${DIR}/rutorrent/config:/config
 
