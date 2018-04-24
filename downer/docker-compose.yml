@@ -69,6 +69,36 @@ services:
       - ${DIR}/downloads:/downloads
       - ${DIR}/tv:/tv
 
+  jackett:
+    restart: always
+    container_name: jackett
+    image: linuxserver/jackett
+    networks: 
+      - downer
+    environment: 
+      - TZ=${TZ}
+      - PUID=${UID}
+      - PGID=${GID}
+      - VIRTUAL_HOST=jackett.home
+      - VIRTUAL_PORT=9117
+    volumes: 
+      - /etc/localtime:/etc/localtime:ro
+      - ${DIR}/jackett/config:/config
+      - ${DIR}/downloads:/downloads
+
+  portainer:
+      restart: always
+      container_name: portainer
+      image: portainer/portainer
+      networks: 
+        - downer
+      environment: 
+        - VIRTUAL_HOST=portainer.home
+        - VIRTUAL_PORT=9000
+      volumes: 
+        - /docker/containers/portainer/config:/data
+        - /var/run/docker.sock:/var/run/docker.sock
+
 networks: 
   downer:
     driver: bridge
