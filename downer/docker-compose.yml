@@ -27,6 +27,8 @@ services:
       - TZ=${TZ}
       - PUID=${UID}
       - PGID=${GID}
+      - VIRTUAL_HOST=rutorrent.home
+      - VIRTUAL_PORT=80
     volumes: 
       - ${DIR}/rutorrent/config:/config
 
