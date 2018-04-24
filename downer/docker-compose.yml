@@ -51,6 +51,24 @@ services:
       - ${DIR}/downloads:/downloads
       - ${DIR}/movies:/movies
 
+  sonarr:
+    restart: always
+    container_name: sonarr
+    image: linuxserver/sonarr
+    networks: 
+      - downer
+    environment: 
+      - TZ=${TZ}
+      - PUID=${UID}
+      - PGID=${GID}
+      - VIRTUAL_HOST=sonarr.home
+      - VIRTUAL_PORT=8989
+    volumes: 
+      - /etc/localtime:/etc/localtime:ro
+      - ${DIR}/sonarr/config:/config
+      - ${DIR}/downloads:/downloads
+      - ${DIR}/tv:/tv
+
 networks: 
   downer:
     driver: bridge
