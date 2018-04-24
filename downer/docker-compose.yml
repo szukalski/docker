@@ -4,7 +4,7 @@ services:
   nginx-proxy:
     restart: always
     container_name: nginx-proxy
-    image: jwilder/jwilder/nginx-proxy
+    image: jwilder/nginx-proxy
     networks:
       - downer
     ports:
