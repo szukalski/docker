@@ -11,8 +11,12 @@ services:
       - "80:80"
       - "443:443"
     volumes: 
+      - ${DIR}/nginx-proxy/certs:/etc/nginx/certs
+      - ${DIR}/nginx-proxy/htpasswd:/etc/nginx/htpasswd
       - /var/run/docker.sock:/tmp/docker.sock:ro
       
+
+
   rutorrent:
     restart: always
     container_name: rutorrent
