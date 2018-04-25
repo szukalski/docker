@@ -7,5 +7,5 @@ echo DIR="$REPLY" > .env
 
 echo UID=$(id -u) >> .env
 echo GID=$(id -g) >> .env
-cat /etc/timezone >> .env
+echo TZ=$(cat /etc/timezone) >> .env
 
