@@ -127,6 +127,23 @@ services:
       - VIRTUAL_PORT=80
     volumes: 
       - ${DIR}/muximux/config:/config
+  
+  openvpn:
+    restart: always
+    container_name: openvpn
+    image: linuxserver/openvpn-as
+    networks: 
+      - downer
+    network_mode: host
+    privileged: true
+    environment: 
+      - TZ=${TZ}
+      - PUID=${UID}
+      - PGID=${GID}
+      - VIRTUAL_HOST=openvpn.home
+      - VIRTUAL_PORT=943
+    volumes: 
+      - ${DIR}/openvpn/config:/config
 
 networks: 
   downer:
