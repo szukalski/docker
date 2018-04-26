@@ -132,8 +132,6 @@ services:
     restart: always
     container_name: openvpn
     image: linuxserver/openvpn-as
-    networks: 
-      - downer
     network_mode: host
     privileged: true
     environment: 
