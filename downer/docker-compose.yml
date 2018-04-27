@@ -131,17 +131,13 @@ services:
   openvpn:
     restart: always
     container_name: openvpn
-    image: linuxserver/openvpn-as
-    network_mode: host
-    privileged: true
-    environment: 
-      - TZ=${TZ}
-      - PUID=${UID}
-      - PGID=${GID}
-      - VIRTUAL_HOST=openvpn.home
-      - VIRTUAL_PORT=943
+    image: kylemanna/openvpn
+    ports:
+      - "1194:1194/udp"
     volumes: 
-      - ${DIR}/openvpn/config:/config
+      - ${DIR}/openvpn/config:/etc/openvpn
+    cap_add:
+        - NET_ADMIN
 
 networks: 
   downer:
