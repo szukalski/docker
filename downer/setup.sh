@@ -16,7 +16,6 @@ echo GID=$(id -g) >> .env
 echo TZ=$(cat /etc/timezone) >> .env
 
 # Create directory structure
-mkdir -p $DIR/nginx-proxy/{certs,htpasswd}
+mkdir -p $DIR/nginx-proxy/{certs,htpasswd,log}
 mkdir -p $DIR/{downloads,tv,movies}
 mkdir -p $DIR/{rutorrent,radarr,sonarr,jackett,muximux,openvpn}/config
-

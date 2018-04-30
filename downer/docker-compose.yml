@@ -13,6 +13,7 @@ services:
     volumes: 
       - ${DIR}/nginx-proxy/certs:/etc/nginx/certs
       - ${DIR}/nginx-proxy/htpasswd:/etc/nginx/htpasswd
+      - ${DIR}/nginx-proxy/log:/var/log/nginx
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
   rutorrent:
