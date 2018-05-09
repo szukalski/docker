@@ -1,4 +1,0 @@
-web:
-  image: 'oleglab/grav:latest'
-  ports:
-    - '80:80'
